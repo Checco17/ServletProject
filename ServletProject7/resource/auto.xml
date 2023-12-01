@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+ <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="Francesco.Mapper.AutoMapper">
+
+
+	<resultMap id="result" type="Francesco.Model.Auto">
+		<result property="targa" column="targa" />
+		<result property="proprietario" column="proprietario" />		
+	</resultMap>
+	
+	
+
+	
+	 <select id="select" resultType="Francesco.Model.Auto">
+  select * from automobili
+  
+  </select>
+  
+  <insert id="insert" parameterType="Francesco.Model.Auto">
+  
+  	insert into automobili  values (#{targa}, #{proprietario})  
+  
+  </insert>
+  
+	
+	
+	<delete id="delete" parameterType="Francesco.Model.Auto">
+	
+	delete from automobili where targa = #{targa}
+	
+	</delete>
+	
+	<update id="update" parameterType="Francesco.Model.Auto">
+	
+	update automobili set proprietario = #{proprietario} where targa= #{targa}
+	
+	</update> 
+	
+</mapper>
+ 
